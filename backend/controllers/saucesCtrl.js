@@ -128,8 +128,26 @@ exports.likes = (req, res) => {
       } else {
         voteResult = 0;
       }
+
+      if (voteResult === 0 && req.body.like === 1) {
+        sauce.like += 1;
+        like.push(userClicker);
+        console.log("test1");
+      } else if (voteResult === 1 && req.body.like === 0) {
+        sauce.like -= 1;
+        console.log("test2");
+      } else if (voteResult === -1 && req.body.like === 0) {
+        sauce.dislike -= 1;
+        console.log("test3");
+      } else if (voteResult === 0 && req.body.like === -1) {
+        sauce.dislike += 1;
+        console.log("test4");
+        dislike.push(userClicker);
+      } else {
+        console.log("test");
+      }
     })
-    .then(() => res.status(201).json({ message: "Like effectué" }))
+    .then(() => res.status(201).json({ message: "vote effectué" }))
 
     .catch((error) => res.status(401).json({ error }));
   // like = +1

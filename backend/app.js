@@ -13,10 +13,7 @@ const path = require("path");
 // importation de mongoose
 const mongoose = require("mongoose");
 mongoose
-  .connect(
-    "mongodb+srv://YoannV:zlXis2jhEf0BfeDD@clustervy.m0v3eqg.mongodb.net/test",
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  )
+  .connect("", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch(() => console.log("Connexion à MongoDB échouée !"));
 //------------------------------------------------------
